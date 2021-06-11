@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.seif.services.databinding.ActivityMainBinding
 
+const val TYPEONE: Int = 1
+const val TYPETWO: Int = 2
+
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,13 +16,22 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        val intent = Intent(this, MyService::class.java)
-        binding.startService.setOnClickListener {
-            startService(intent)
-        }
-       binding.endService.setOnClickListener {
-           stopService(intent)
-       }
+// unbounded(started) service
+//        val intent = Intent(this, MyService::class.java)
+//        binding.startService.setOnClickListener {
+//            startService(intent)
+//        }
+//       binding.endService.setOnClickListener {
+//           stopService(intent)
+//       }
+
+        val intent = Intent(this, MyIntentService::class.java)
+        intent.putExtra("type", TYPEONE)
+        startService(intent)
+
+        val intent2 = Intent(this, MyIntentService::class.java)
+            intent2.putExtra("type", TYPETWO)
+            startService(intent2)
 
 
     }
