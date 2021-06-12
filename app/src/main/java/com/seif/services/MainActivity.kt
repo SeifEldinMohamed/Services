@@ -3,10 +3,11 @@ package com.seif.services
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.seif.services.Constants.Companion.TYPEONE
+import com.seif.services.Constants.Companion.TYPETWO
 import com.seif.services.databinding.ActivityMainBinding
 
-const val TYPEONE: Int = 1
-const val TYPETWO: Int = 2
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
